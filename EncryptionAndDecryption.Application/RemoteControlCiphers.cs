@@ -2,11 +2,11 @@
 
 namespace EncryptionAndDecryption.Application
 {
-    public abstract class RemoteCiphers
+    public abstract class RemoteControlCiphers
     {
         protected ICipher _cipher;
 
-        public RemoteCiphers(ICipher cipher)
+        public RemoteControlCiphers(ICipher cipher)
         {
             _cipher = cipher;
         }

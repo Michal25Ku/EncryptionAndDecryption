@@ -8,7 +8,13 @@ namespace EncryptionAndDecryption.Application.Ciphers
 {
     public interface ICipher
     {
-        string EncryptedText(string explicitText);
-        string DecryptedText(string encryptedText);
+        string? Text { get; set; }
+        int Shift { get; set; }
+
+        string? EncryptedText { get; set; }
+        string? DecryptedText { get; set; }
+
+        void Encrypt(string plainText, int shift);
+        void Decrypt(string encryptedText, int shift);
     }
 }

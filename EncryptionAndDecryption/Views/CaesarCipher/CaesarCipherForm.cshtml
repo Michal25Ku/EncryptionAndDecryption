@@ -1,0 +1,32 @@
+﻿@using EncryptionAndDecryption.Application.Ciphers
+@model ICipher
+
+<form asp-action="Encrypt" asp-controller="CaesarCipher" method="post">
+    <div>
+        <label for="Text">Plain text</label>
+        <input class="form-control" type="text" name="text" />
+    </div>
+    <div>
+        <label for="Shift"></label>
+        <input class="form-control" type="number" name="shift" />
+    </div>
+    <button class="btn" type="submit">Encrypt</button>
+</form>
+<p>
+    @Model.EncryptedText
+</p>
+
+<form asp-action="Decrypt" asp-controller="CaesarCipher" method="post">
+    <div>
+        <label for="Text">Encrypted text</label>
+        <input class="form-control" type="text" name="text" />
+    </div>
+    <div>
+        <label for="Shift"></label>
+        <input class="form-control" type="number" name="shift" />
+    </div>
+    <button class="btn" type="submit">Decrypt</button>
+</form>
+<p>
+    @Model.DecryptedText
+</p>

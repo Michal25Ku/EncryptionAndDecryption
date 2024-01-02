@@ -1,3 +1,5 @@
+using EncryptionAndDecryption.Application.Ciphers;
+
 namespace EncryptionAndDecryption
 {
     public class Program
@@ -8,6 +10,7 @@ namespace EncryptionAndDecryption
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<ICipher, CaesarCipher>();
 
             var app = builder.Build();
 
