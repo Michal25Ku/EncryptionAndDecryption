@@ -11,8 +11,10 @@ namespace EncryptionAndDecryption.Application.RemoteControl
             _cipher = cipher;
         }
 
-        public abstract void ToEncrypt();
-        public abstract void ToDecrypt();
+        public abstract void ToEncrypt(string text);
+        public abstract string ShowEncryptedText();
+        public abstract void ToDecrypt(string text);
+        public abstract string ShowDecryptedText();
         public abstract void ToSetAlphabet();
     }
 }

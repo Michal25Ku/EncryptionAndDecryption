@@ -1,5 +1,5 @@
-﻿@using EncryptionAndDecryption.Application.Ciphers
-@model ICipher
+﻿@using EncryptionAndDecryption.Application.RemoteControl
+@model CaesarCipherRemoteControl
 
 <form asp-action="Encrypt" asp-controller="CaesarCipher" method="post">
     <div>
@@ -13,7 +13,7 @@
     <button class="btn" type="submit">Encrypt</button>
 </form>
 <p>
-    @Model.EncryptedText
+    @Model.ShowEncryptedText()
 </p>
 
 <form asp-action="Decrypt" asp-controller="CaesarCipher" method="post">
@@ -28,5 +28,5 @@
     <button class="btn" type="submit">Decrypt</button>
 </form>
 <p>
-    @Model.DecryptedText
+    @Model.ShowDecryptedText()
 </p>

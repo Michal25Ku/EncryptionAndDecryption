@@ -1,4 +1,5 @@
 ﻿using EncryptionAndDecryption.Application.Ciphers;
+using EncryptionAndDecryption.Application.RemoteControl;
 using EncryptionAndDecryption.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,34 +7,34 @@ namespace EncryptionAndDecryption.Controllers
 {
     public class CaesarCipherController : Controller
     {
-        private readonly ICipher _caesarCipher;
+        private CaesarCipherRemoteControl _caesarCipherRemoteControl;
 
         public CaesarCipherController(ICipher caesarCipher)
         {
-            _caesarCipher = caesarCipher;
+            _caesarCipherRemoteControl = new CaesarCipherRemoteControl(caesarCipher);
         }
 
         public IActionResult CaesarCipherForm()
         {
-            return View(_caesarCipher);
+            return View(_caesarCipherRemoteControl);
         }
 
         [HttpPost]
         public IActionResult Encrypt(string text, int shift)
         {
-            _caesarCipher.SetAdditionalFunctional();
-            _caesarCipher.Encrypt(text);
+            _caesarCipherRemoteControl.Shift(shift);
+            _caesarCipherRemoteControl.ToEncrypt(text);
 
-            return View("CaesarCipherForm", _caesarCipher);
+            return View("CaesarCipherForm", _caesarCipherRemoteControl);
         }
 
         [HttpPost]
         public IActionResult Decrypt(string text, int shift)
         {
-            _caesarCipher.SetAdditionalFunctional();
-            _caesarCipher.Decrypt(text);
+            _caesarCipherRemoteControl.Shift(shift);
+            _caesarCipherRemoteControl.ToDecrypt(text);
 
-            return View("CaesarCipherForm", _caesarCipher);
+            return View("CaesarCipherForm", _caesarCipherRemoteControl);
         }
     }
 }

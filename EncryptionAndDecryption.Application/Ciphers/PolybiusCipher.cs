@@ -21,7 +21,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
             throw new NotImplementedException();
         }
 
-        public void SetAdditionalFunctional(int? shift)
+        public void SetAlphabet(string AlhpabetName)
         {
             throw new NotImplementedException();
         }

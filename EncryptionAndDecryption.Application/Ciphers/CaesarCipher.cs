@@ -33,11 +33,6 @@ namespace EncryptionAndDecryption.Application.Ciphers
             EncryptedText = "szaszyfrowane costam";
         }
 
-        public void SetAdditionalFunctional(int? shift)
-        {
-            Shift = (int)shift;
-        }
-
         public void SetAlphabet(string AlhpabetName)
         {
             Alphabets.FoundAlphabet(AlhpabetName);
