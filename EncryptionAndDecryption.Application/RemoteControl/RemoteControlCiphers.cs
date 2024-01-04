@@ -1,6 +1,6 @@
 ﻿using EncryptionAndDecryption.Application.Ciphers;
 
-namespace EncryptionAndDecryption.Application
+namespace EncryptionAndDecryption.Application.RemoteControl
 {
     public abstract class RemoteControlCiphers
     {
@@ -11,8 +11,8 @@ namespace EncryptionAndDecryption.Application
             _cipher = cipher;
         }
 
-        public abstract void Encrypted();
-        public abstract void Decrypted();
-        //public abstract void Shift();
+        public abstract void ToEncrypt();
+        public abstract void ToDecrypt();
+        public abstract void ToSetAlphabet();
     }
 }
