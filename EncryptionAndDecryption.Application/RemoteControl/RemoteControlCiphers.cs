@@ -15,6 +15,6 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         public abstract string ShowEncryptedText();
         public abstract void ToDecrypt(string text);
         public abstract string ShowDecryptedText();
-        public abstract void ToSetAlphabet();
+        public abstract void ToSetAlphabet(string alphabetName);
     }
 }

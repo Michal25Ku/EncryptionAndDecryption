@@ -30,12 +30,9 @@ namespace EncryptionAndDecryption.Application.Alphabet
 
         public void AddNewAlphabet(string alphabetName, char[] alphabet)
         {
-            throw new NotImplementedException();
+            AlphabetList.Add(alphabetName, alphabet);
         }
 
-        public char[] FoundAlphabet(string alphabetName)
-        {
-            throw new NotImplementedException();
-        }
+        public char[] FoundAlphabet(string alphabetName) => AlphabetList[alphabetName];
     }
 }
