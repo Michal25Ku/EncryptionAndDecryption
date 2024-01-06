@@ -10,7 +10,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
     public class CaesarCipher : ICipher
     {
         public int Shift { get; set; }
-        public Alphabets Alphabets { get; set; }
+        public IAlphabet Alphabets { get; set; }
         public char[] CurrentAlphabet { get; set; }
 
         public CaesarCipher()

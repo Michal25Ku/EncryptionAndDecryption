@@ -48,5 +48,13 @@ namespace EncryptionAndDecryptionUnitTests
 
             Assert.AreEqual(expected, _caesarCipher.EncryptedText);
         }
+
+        [TestMethod]
+        public void SetAlphabetMethodTest_ShouldSetCurrentAlphabet()
+        {
+            _caesarCipher.SetAlphabet("En");
+
+            Assert.IsTrue(_caesarCipher.CurrentAlphabet.Equals(_caesarCipher.Alphabets.FoundAlphabet("En")));
+        }
     }
 }
