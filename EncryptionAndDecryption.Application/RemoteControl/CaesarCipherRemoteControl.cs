@@ -13,39 +13,33 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         {
         }
 
-        public override string ShowDecryptedText()
-        {
-            throw new NotImplementedException();
-        }
+        public override string ShowDecryptedText() => _cipher.DecryptedText;
 
-        public override string ShowEncryptedText()
-        {
-            throw new NotImplementedException();
-        }
+        public override string ShowEncryptedText() => _cipher.EncryptedText;
 
         public override void ToDecrypt(string text)
         {
-            throw new NotImplementedException();
+            ToDecrypt(text, 0);
         }
 
         public void ToDecrypt(string text, int shift)
         {
-            throw new NotImplementedException();
+            _cipher.Decrypt(text, shift);
         }
 
         public override void ToEncrypt(string text)
         {
-            throw new NotImplementedException();
+            ToEncrypt(text, 0);
         }
 
         public void ToEncrypt(string text, int shift)
         {
-            throw new NotImplementedException();
+            _cipher.Encrypt(text, shift);
         }
 
         public override void ToSetAlphabet(string alphabetName)
         {
-            throw new NotImplementedException();
+            _cipher.SetAlphabet(alphabetName);
         }
     }
 }

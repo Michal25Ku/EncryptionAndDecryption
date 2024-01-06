@@ -15,8 +15,8 @@ namespace EncryptionAndDecryptionUnitTests
 
             _alphabets.AddNewAlphabet(testAlphabetName, testAlphabet);
 
-            Assert.IsTrue(_alphabets.AlphabetList.ContainsKey(testAlphabetName));
-            Assert.IsTrue(_alphabets.AlphabetList[testAlphabetName].Equals(testAlphabet));
+            Assert.IsTrue(Alphabets.AlphabetList.ContainsKey(testAlphabetName));
+            Assert.IsTrue(Alphabets.AlphabetList[testAlphabetName].Equals(testAlphabet));
         }
 
         [TestMethod]

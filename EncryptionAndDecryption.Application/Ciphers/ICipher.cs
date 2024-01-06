@@ -11,8 +11,8 @@ namespace EncryptionAndDecryption.Application.Ciphers
         string? EncryptedText { get; set; }
         string? DecryptedText { get; set; }
 
-        void Encrypt(string plainText);
-        void Decrypt(string encryptedText);
+        void Encrypt(string plainText, int shift = 0);
+        void Decrypt(string encryptedText, int shift = 0);
         void SetAlphabet(string AlhpabetName);
     }
 }

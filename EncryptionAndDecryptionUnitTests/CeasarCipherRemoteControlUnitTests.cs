@@ -29,42 +29,44 @@ namespace EncryptionAndDecryptionUnitTests
         public void ToDecryptMethodTest_1Parameter_ShouldCalledDecryptMethodInCaesarCipherClass()
         {
             var mockCaesarCipher = new Mock<ICipher>();
+            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            _caesarCipherRemoteControl.ToDecrypt(testText);
+            caesarCipherRemoteControl.ToDecrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Decrypt(testText));
+            mockCaesarCipher.Verify(x => x.Decrypt(testText, 0));
         }
 
         [TestMethod]
         public void ToEncryptMethodTest_1Parameter_ShouldCalledEncryptMethodInCaesarCipherClass()
         {
             var mockCaesarCipher = new Mock<ICipher>();
+            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            _caesarCipherRemoteControl.ToEncrypt(testText);
+            caesarCipherRemoteControl.ToEncrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Encrypt(testText));
+            mockCaesarCipher.Verify(x => x.Encrypt(testText, 0));
         }
 
         [TestMethod]
         public void ToDecryptMethodTest_2Parameter_ShouldCalledDecryptMethodInCaesarCipherClass()
         {
             var mockCaesarCipher = new Mock<ICipher>();
+            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            _caesarCipherRemoteControl.ToDecrypt(testText, 1);
+            caesarCipherRemoteControl.ToDecrypt(testText, 1);
 
-            Assert.AreEqual(1, caesarCipher.Shift);
-            mockCaesarCipher.Verify(x => x.Decrypt(testText));
+            mockCaesarCipher.Verify(x => x.Decrypt(testText, 1));
         }
 
         [TestMethod]
         public void ToEncryptMethodTest_2Parameter_ShouldCalledEncryptMethodInCaesarCipherClass()
         {
             var mockCaesarCipher = new Mock<ICipher>();
+            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            _caesarCipherRemoteControl.ToEncrypt(testText, 1);
-            Assert.AreEqual(1, caesarCipher.Shift);
+            caesarCipherRemoteControl.ToEncrypt(testText, 1);
 
-            mockCaesarCipher.Verify(x => x.Encrypt(testText));
+            mockCaesarCipher.Verify(x => x.Encrypt(testText, 1));
         }
 
         [TestMethod]
@@ -72,10 +74,10 @@ namespace EncryptionAndDecryptionUnitTests
         {
             string test;
 
-            _caesarCipherRemoteControl.ToDecrypt(testText, 1);
+            _caesarCipherRemoteControl.ToDecrypt("uęśu234", 1);
             test = _caesarCipherRemoteControl.ShowDecryptedText();
 
-            Assert.AreEqual(testText, "śdrś012");
+            Assert.AreEqual(testText.ToLower(), test);
         }
 
         [TestMethod]
@@ -83,18 +85,19 @@ namespace EncryptionAndDecryptionUnitTests
         {
             string test;
 
-            _caesarCipherRemoteControl.ToEncrypt("śdrś012", 1);
+            _caesarCipherRemoteControl.ToEncrypt(testText, 1);
             test = _caesarCipherRemoteControl.ShowEncryptedText();
 
-            Assert.AreEqual("śdrś012", testText);
+            Assert.AreEqual("uęśu234", test);
         }
 
         [TestMethod]
         public void ToSetAlphabetTestMethod_ShouldCalledSetAlphabetMethodInCaesarCipherClass()
         {
             var mockCaesarCipher = new Mock<ICipher>();
+            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            _caesarCipherRemoteControl.ToSetAlphabet("En");
+            caesarCipherRemoteControl.ToSetAlphabet("En");
 
             mockCaesarCipher.Verify(x => x.SetAlphabet("En"));
         }

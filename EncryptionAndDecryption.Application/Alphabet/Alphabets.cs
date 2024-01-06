@@ -8,7 +8,7 @@ namespace EncryptionAndDecryption.Application.Alphabet
 {
     public class Alphabets : IAlphabet
     {
-        public Dictionary<string, char[]> AlphabetList { get; private set; } = new Dictionary<string, char[]>()
+        public static Dictionary<string, char[]> AlphabetList { get; private set; } = new Dictionary<string, char[]>()
         {
             {
                 "En", new char[]

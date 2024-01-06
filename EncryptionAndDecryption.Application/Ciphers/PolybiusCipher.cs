@@ -11,12 +11,12 @@ namespace EncryptionAndDecryption.Application.Ciphers
         public string? EncryptedText { get; set; }
         public string? DecryptedText { get; set; }
 
-        public void Decrypt(string encryptedText)
+        public void Decrypt(string encryptedText, int shift = 0)
         {
             throw new NotImplementedException();
         }
 
-        public void Encrypt(string plainText)
+        public void Encrypt(string plainText, int shift = 0)
         {
             throw new NotImplementedException();
         }

@@ -18,7 +18,6 @@ namespace EncryptionAndDecryptionUnitTests
         {
             CaesarCipher testCaesarCipher = new CaesarCipher();
 
-            Assert.AreEqual(0, testCaesarCipher.Shift);
             Assert.IsTrue(testCaesarCipher.Alphabets is Alphabets);
             Assert.IsTrue(testCaesarCipher.CurrentAlphabet.Equals(testCaesarCipher.Alphabets.FoundAlphabet("Pl")));
         }
@@ -31,8 +30,7 @@ namespace EncryptionAndDecryptionUnitTests
         {
             string result = "text123";
 
-            _caesarCipher.Shift = shift;
-            _caesarCipher.Decrypt(cryptogram);
+            _caesarCipher.Decrypt(cryptogram, shift);
 
             Assert.AreEqual(result, _caesarCipher.DecryptedText);
         }
@@ -43,8 +41,7 @@ namespace EncryptionAndDecryptionUnitTests
         [DataRow(3, "someThinG", "uqogwklój")]
         public void EncryptMethodTest_Encrypted_ShouldReturnStringOfEncryptedPlainText(int shift, string cryptogram, string expected)
         {
-            _caesarCipher.Shift = shift;
-            _caesarCipher.Encrypt(cryptogram);
+            _caesarCipher.Encrypt(cryptogram, shift);
 
             Assert.AreEqual(expected, _caesarCipher.EncryptedText);
         }
