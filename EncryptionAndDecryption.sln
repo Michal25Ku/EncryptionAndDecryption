@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionAndDecryption", "EncryptionAndDecryption\EncryptionAndDecryption.csproj", "{40041951-0A19-43D7-A928-9DA857EA363C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionAndDecryption", "EncryptionAndDecryption\EncryptionAndDecryption.csproj", "{40041951-0A19-43D7-A928-9DA857EA363C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionAndDecryption.Application", "EncryptionAndDecryption.Application\EncryptionAndDecryption.Application.csproj", "{7F4C6292-5B43-4474-BB0B-AB06B69EB774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionAndDecryption.Application", "EncryptionAndDecryption.Application\EncryptionAndDecryption.Application.csproj", "{7F4C6292-5B43-4474-BB0B-AB06B69EB774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionAndDecryptionUnitTests", "EncryptionAndDecryptionUnitTests\EncryptionAndDecryptionUnitTests.csproj", "{6222DAD3-4166-46AF-9429-5F09943876EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7F4C6292-5B43-4474-BB0B-AB06B69EB774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F4C6292-5B43-4474-BB0B-AB06B69EB774}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F4C6292-5B43-4474-BB0B-AB06B69EB774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6222DAD3-4166-46AF-9429-5F09943876EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6222DAD3-4166-46AF-9429-5F09943876EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6222DAD3-4166-46AF-9429-5F09943876EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6222DAD3-4166-46AF-9429-5F09943876EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
