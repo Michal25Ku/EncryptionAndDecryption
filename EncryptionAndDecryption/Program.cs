@@ -1,4 +1,5 @@
 using EncryptionAndDecryption.Application.Ciphers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EncryptionAndDecryption
 {
@@ -10,7 +11,8 @@ namespace EncryptionAndDecryption
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<ICipher, CaesarCipher>();
+            builder.Services.AddScoped<ICipher, CaesarCipher>().AddScoped<CaesarCipher>();
+            builder.Services.AddScoped<ICipher, PolybiusCipher>().AddScoped<PolybiusCipher>();
 
             var app = builder.Build();
 

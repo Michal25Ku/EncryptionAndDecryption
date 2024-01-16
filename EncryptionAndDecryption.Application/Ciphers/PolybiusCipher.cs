@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EncryptionAndDecryption.Application.Alphabet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace EncryptionAndDecryption.Application.Ciphers
 {
     public class PolybiusCipher : ICipher
     {
+        public IAlphabet Alphabets { get; set; }
+        private char[] _currentAlphabet { get; set; }
+
         public string? EncryptedText { get; set; }
         public string? DecryptedText { get; set; }
 
@@ -21,9 +25,14 @@ namespace EncryptionAndDecryption.Application.Ciphers
             throw new NotImplementedException();
         }
 
-        public void SetAlphabet(string AlhpabetName)
+        public char[] SetAlphabet(string AlhpabetName)
         {
             throw new NotImplementedException();
+        }
+
+        public char[] GetCurrentAlphabet()
+        {
+            return _currentAlphabet;
         }
     }
 }

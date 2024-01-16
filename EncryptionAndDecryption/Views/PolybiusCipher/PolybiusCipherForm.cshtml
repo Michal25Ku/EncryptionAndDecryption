@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using EncryptionAndDecryption.Application.RemoteControl
+@using EncryptionAndDecryption.Application.Alphabet
+@model PolybiusCipherRemoteControl
+
+<div style="display: flex; justify-content: space-between;">
+    <div style="width: 30%;">
+        <form asp-action="Encrypt" asp-controller="PolybiusCipher" method="post">
+            <div>
+                <label for="Text">Plain text</label>
+                <input class="form-control" type="text" name="text" value=""/>
+            </div>
+            <div>
+                <label for="Shift"></label>
+                <input class="form-control" type="number" name="shift" min="0" value="0"/>
+            </div>
+            <button class="btn" type="submit">Encrypt</button>
+        </form>
+        <p>
+            <label for="encryptedText">Encrypted text:</label>
+            <br>
+            <textarea class="form-control" id="encryptedText" readonly>
+                @Model.ShowEncryptedText()
+            </textarea>
+        </p>
+    </div>
+    <div style="width: 70%;">
+        <form asp-action="Decrypt" asp-controller="PolybiusCipher" method="post">
+    <div>
+        <label for="Text">Encrypted text</label>
+        <input class="form-control" type="text" name="text" />
+    </div>
+    <div>
+        <label for="Shift"></label>
+        <input class="form-control" type="number" name="shift" min="0" value="0"/>
+    </div>
+    <button class="btn" type="submit">Decrypt</button>
+</form>
+<p>
+    @Model.ShowDecryptedText()
+</p>
+    </div>
+</div>

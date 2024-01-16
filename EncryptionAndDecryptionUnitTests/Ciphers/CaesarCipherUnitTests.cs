@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EncryptionAndDecryptionUnitTests
+namespace EncryptionAndDecryptionUnitTests.Ciphers
 {
     [TestClass]
     public class CaesarCipherUnitTests
@@ -19,7 +19,7 @@ namespace EncryptionAndDecryptionUnitTests
             CaesarCipher testCaesarCipher = new CaesarCipher();
 
             Assert.IsTrue(testCaesarCipher.Alphabets is Alphabets);
-            Assert.IsTrue(testCaesarCipher.CurrentAlphabet.Equals(testCaesarCipher.Alphabets.FoundAlphabet("Pl")));
+            Assert.IsTrue(testCaesarCipher.GetCurrentAlphabet().Equals(testCaesarCipher.Alphabets.FoundAlphabet("Pl")));
         }
 
         [DataTestMethod]
@@ -51,7 +51,7 @@ namespace EncryptionAndDecryptionUnitTests
         {
             _caesarCipher.SetAlphabet("En");
 
-            Assert.IsTrue(_caesarCipher.CurrentAlphabet.Equals(_caesarCipher.Alphabets.FoundAlphabet("En")));
+            Assert.IsTrue(_caesarCipher.GetCurrentAlphabet().Equals(_caesarCipher.Alphabets.FoundAlphabet("En")));
         }
     }
 }

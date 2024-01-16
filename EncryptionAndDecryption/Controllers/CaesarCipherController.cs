@@ -9,9 +9,9 @@ namespace EncryptionAndDecryption.Controllers
     {
         private CaesarCipherRemoteControl _caesarCipherRemoteControl;
 
-        public CaesarCipherController(ICipher caesarCipher)
-        {
-            _caesarCipherRemoteControl = new CaesarCipherRemoteControl(caesarCipher);
+        public CaesarCipherController(IServiceProvider serviceProvider)
+        { 
+            _caesarCipherRemoteControl = new CaesarCipherRemoteControl(serviceProvider.GetRequiredService<CaesarCipher>());
         }
 
         public IActionResult CaesarCipherForm()

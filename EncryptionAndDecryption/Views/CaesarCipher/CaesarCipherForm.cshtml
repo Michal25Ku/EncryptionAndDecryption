@@ -1,19 +1,24 @@
 ﻿@using EncryptionAndDecryption.Application.RemoteControl
+@using EncryptionAndDecryption.Application.Alphabet
 @model CaesarCipherRemoteControl
 
 <form asp-action="Encrypt" asp-controller="CaesarCipher" method="post">
     <div>
         <label for="Text">Plain text</label>
-        <input class="form-control" type="text" name="text" />
+        <input class="form-control" type="text" name="text" value=""/>
     </div>
     <div>
         <label for="Shift"></label>
-        <input class="form-control" type="number" name="shift" />
+        <input class="form-control" type="number" name="shift" min="0" value="0"/>
     </div>
     <button class="btn" type="submit">Encrypt</button>
 </form>
 <p>
-    @Model.ShowEncryptedText()
+    <label for="encryptedText">Encrypted text:</label>
+    <br>
+    <textarea class="form-control" id="encryptedText" readonly>
+        @Model.ShowEncryptedText()
+    </textarea>
 </p>
 
 <form asp-action="Decrypt" asp-controller="CaesarCipher" method="post">
@@ -23,7 +28,7 @@
     </div>
     <div>
         <label for="Shift"></label>
-        <input class="form-control" type="number" name="shift" />
+        <input class="form-control" type="number" name="shift" min="0" value="0"/>
     </div>
     <button class="btn" type="submit">Decrypt</button>
 </form>

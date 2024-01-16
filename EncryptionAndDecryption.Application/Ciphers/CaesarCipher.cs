@@ -11,12 +11,12 @@ namespace EncryptionAndDecryption.Application.Ciphers
     public class CaesarCipher : ICipher
     {
         public IAlphabet Alphabets { get; set; }
-        public char[] CurrentAlphabet { get; set; }
+        private char[] _currentAlphabet { get; set; }
 
         public CaesarCipher()
         {
             Alphabets = new Alphabets();
-            CurrentAlphabet = Alphabets.FoundAlphabet("Pl");
+            _currentAlphabet = Alphabets.FoundAlphabet("Pl");
         }
 
         public string? EncryptedText { get; set; }
@@ -24,12 +24,15 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         public void Decrypt(string encryptedText, int shift = 0)
         {
+            if (encryptedText == null)
+                return;
+
             var letters = encryptedText.ToLower().Where(l => char.IsLetter(l) || char.IsNumber(l)).ToArray();
             var decryptedText = new char[encryptedText.Length];
 
             for (int i = 0; i < letters.Length; i++)
             {
-                decryptedText[i] = CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + CurrentAlphabet.Length - shift) % CurrentAlphabet.Length];
+                decryptedText[i] = _currentAlphabet[(Array.IndexOf(_currentAlphabet, letters[i]) + _currentAlphabet.Length - shift) % _currentAlphabet.Length];
             }
 
             DecryptedText = new string(decryptedText);
@@ -37,20 +40,29 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         public void Encrypt(string plainText, int shift = 0)
         {
+            if (plainText == null)
+                return;
+
             var letters = plainText.ToLower().Where(l => char.IsLetter(l) || char.IsNumber(l)).ToArray();
             var encryptedText = new char[plainText.Length];
 
             for (int i = 0; i < letters.Length; i++)
             {
-                encryptedText[i] = CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + shift) % CurrentAlphabet.Length];
+                encryptedText[i] = _currentAlphabet[(Array.IndexOf(_currentAlphabet, letters[i]) + shift) % _currentAlphabet.Length];
             }
 
             EncryptedText = new string(encryptedText);
         }
 
-        public void SetAlphabet(string AlhpabetName)
+        public char[] SetAlphabet(string AlhpabetName)
         {
-            CurrentAlphabet = Alphabets.FoundAlphabet(AlhpabetName);
+            _currentAlphabet = Alphabets.FoundAlphabet(AlhpabetName);
+            return _currentAlphabet;
+        }
+
+        public char[] GetCurrentAlphabet()
+        {
+            return _currentAlphabet;
         }
     }
 }

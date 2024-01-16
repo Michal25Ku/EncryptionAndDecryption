@@ -9,13 +9,7 @@ namespace EncryptionAndDecryption.Application.RemoteControl
 {
     public class CaesarCipherRemoteControl : RemoteControlCiphers
     {
-        public CaesarCipherRemoteControl(ICipher cipher) : base(cipher)
-        {
-        }
-
-        public override string ShowDecryptedText() => _cipher.DecryptedText;
-
-        public override string ShowEncryptedText() => _cipher.EncryptedText;
+        public CaesarCipherRemoteControl(ICipher cipher) : base(cipher) { }
 
         public override void ToDecrypt(string text)
         {
@@ -35,11 +29,6 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         public void ToEncrypt(string text, int shift)
         {
             _cipher.Encrypt(text, shift);
-        }
-
-        public override void ToSetAlphabet(string alphabetName)
-        {
-            _cipher.SetAlphabet(alphabetName);
         }
     }
 }

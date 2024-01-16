@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EncryptionAndDecryption.Application.Alphabet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         void Encrypt(string plainText, int shift = 0);
         void Decrypt(string encryptedText, int shift = 0);
-        void SetAlphabet(string AlhpabetName);
+        char[] SetAlphabet(string AlhpabetName);
+        char[] GetCurrentAlphabet();
     }
 }

@@ -21,7 +21,12 @@ namespace EncryptionAndDecryption.Application.Ciphers
             throw new NotImplementedException();
         }
 
-        public void SetAlphabet(string AlhpabetName)
+        public char[] GetCurrentAlphabet()
+        {
+            throw new NotImplementedException();
+        }
+
+        public char[] SetAlphabet(string AlhpabetName)
         {
             throw new NotImplementedException();
         }
