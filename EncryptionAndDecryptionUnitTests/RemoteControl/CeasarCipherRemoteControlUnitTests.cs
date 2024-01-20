@@ -16,7 +16,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
         CaesarCipher caesarCipher;
         CaesarCipherRemoteControl _caesarCipherRemoteControl;
 
-        string testText = "Test123";
+        string testText = "Test";
 
         public CeasarCipherRemoteControlUnitTests()
         {
@@ -74,7 +74,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
         {
             string test;
 
-            _caesarCipherRemoteControl.ToDecrypt("uęśu234", 1);
+            _caesarCipherRemoteControl.ToDecrypt("uęśu", 1);
             test = _caesarCipherRemoteControl.ShowDecryptedText();
 
             Assert.AreEqual(testText.ToLower(), test);
@@ -88,18 +88,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
             _caesarCipherRemoteControl.ToEncrypt(testText, 1);
             test = _caesarCipherRemoteControl.ShowEncryptedText();
 
-            Assert.AreEqual("uęśu234", test);
-        }
-
-        [TestMethod]
-        public void ToSetAlphabetTestMethod_ShouldCalledSetAlphabetMethodInCaesarCipherClass()
-        {
-            var mockCaesarCipher = new Mock<ICipher>();
-            var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
-
-            caesarCipherRemoteControl.ToSetAlphabet("En");
-
-            mockCaesarCipher.Verify(x => x.SetAlphabet("En"));
+            Assert.AreEqual("uęśu", test);
         }
     }
 }

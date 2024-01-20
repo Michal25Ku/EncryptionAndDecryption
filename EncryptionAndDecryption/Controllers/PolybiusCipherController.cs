@@ -1,5 +1,6 @@
 ﻿using EncryptionAndDecryption.Application.Ciphers;
 using EncryptionAndDecryption.Application.RemoteControl;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,7 +8,7 @@ namespace EncryptionAndDecryption.Controllers
 {
     public class PolybiusCipherController : Controller
     {
-        private PolybiusCipherRemoteControl _polybiusCipherRemoteControl;
+        private readonly PolybiusCipherRemoteControl _polybiusCipherRemoteControl;
 
         public PolybiusCipherController(IServiceProvider serviceProvider)
         {
@@ -28,16 +29,18 @@ namespace EncryptionAndDecryption.Controllers
         }
 
         [HttpPost]
-        public IActionResult Decrypt(string text)
+        public IActionResult CreateKey()
         {
-            _polybiusCipherRemoteControl.ToDecrypt(text);
+            _polybiusCipherRemoteControl.CreateKey();
 
             return View("PolybiusCipherForm", _polybiusCipherRemoteControl);
         }
 
         [HttpPost]
-        public IActionResult DisplayAlphabet(char[] alphabet)
+        public IActionResult Decrypt(string text)
         {
+            _polybiusCipherRemoteControl.ToDecrypt(text);
+
             return View("PolybiusCipherForm", _polybiusCipherRemoteControl);
         }
     }

@@ -9,11 +9,13 @@ namespace EncryptionAndDecryption.Application.RemoteControl
 {
     public class PolybiusCipherRemoteControl : RemoteControlCiphers
     {
-        public PolybiusCipherRemoteControl(ICipher cipher) : base(cipher) { }
-
-        public char[] CurrentAlphabet()
+        public PolybiusCipherRemoteControl(ICipher cipher) : base(cipher) 
         {
-            return _cipher.GetCurrentAlphabet();
+        }
+
+        public void CreateKey()
+        {
+            _cipher.Action(null);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         void Encrypt(string plainText, int shift = 0);
         void Decrypt(string encryptedText, int shift = 0);
-        char[] SetAlphabet(string AlhpabetName);
         char[] GetCurrentAlphabet();
+        void Action(object obj);
     }
 }

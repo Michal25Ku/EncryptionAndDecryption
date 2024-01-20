@@ -1,4 +1,6 @@
 using EncryptionAndDecryption.Application.Ciphers;
+using EncryptionAndDecryption.Application.RemoteControl;
+using EncryptionAndDecryption.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EncryptionAndDecryption
@@ -11,8 +13,9 @@ namespace EncryptionAndDecryption
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<ICipher, CaesarCipher>().AddScoped<CaesarCipher>();
-            builder.Services.AddScoped<ICipher, PolybiusCipher>().AddScoped<PolybiusCipher>();
+
+            builder.Services.AddSingleton<ICipher, CaesarCipher>().AddSingleton<CaesarCipher>();
+            builder.Services.AddSingleton<ICipher, PolybiusCipher>().AddSingleton<PolybiusCipher>();
 
             var app = builder.Build();
 

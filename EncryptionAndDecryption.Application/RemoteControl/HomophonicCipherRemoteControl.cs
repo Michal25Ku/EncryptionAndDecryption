@@ -32,10 +32,5 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         {
             throw new NotImplementedException();
         }
-
-        public override void ToSetAlphabet(string alphabetName)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

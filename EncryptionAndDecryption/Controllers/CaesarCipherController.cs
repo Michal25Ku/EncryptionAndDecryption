@@ -7,7 +7,7 @@ namespace EncryptionAndDecryption.Controllers
 {
     public class CaesarCipherController : Controller
     {
-        private CaesarCipherRemoteControl _caesarCipherRemoteControl;
+        private readonly CaesarCipherRemoteControl _caesarCipherRemoteControl;
 
         public CaesarCipherController(IServiceProvider serviceProvider)
         { 

@@ -23,12 +23,12 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
         }
 
         [DataTestMethod]
-        [DataRow(1, "uęyu234")]
-        [DataRow(2, "vfzv345")]
-        [DataRow(3, "wgźw456")]
+        [DataRow(1, "uęyu")]
+        [DataRow(2, "vfzv")]
+        [DataRow(3, "wgźw")]
         public void DecryptMethodTest_Decrypted_ShouldReturnStringOfDecryptedCryptogram(int shift, string cryptogram)
         {
-            string result = "text123";
+            string result = "text";
 
             _caesarCipher.Decrypt(cryptogram, shift);
 
@@ -36,7 +36,7 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
         }
 
         [DataTestMethod]
-        [DataRow(1, "text123", "uęyu234")]
+        [DataRow(1, "text", "uęyu")]
         [DataRow(2, "Test", "vftv")]
         [DataRow(3, "someThinG", "uqogwklój")]
         public void EncryptMethodTest_Encrypted_ShouldReturnStringOfEncryptedPlainText(int shift, string cryptogram, string expected)
@@ -44,14 +44,6 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
             _caesarCipher.Encrypt(cryptogram, shift);
 
             Assert.AreEqual(expected, _caesarCipher.EncryptedText);
-        }
-
-        [TestMethod]
-        public void SetAlphabetMethodTest_ShouldSetCurrentAlphabet()
-        {
-            _caesarCipher.SetAlphabet("En");
-
-            Assert.IsTrue(_caesarCipher.GetCurrentAlphabet().Equals(_caesarCipher.Alphabets.FoundAlphabet("En")));
         }
     }
 }

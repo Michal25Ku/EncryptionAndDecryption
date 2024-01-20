@@ -1,6 +1,12 @@
 ﻿@using EncryptionAndDecryption.Application.RemoteControl
 @using EncryptionAndDecryption.Application.Alphabet
 @model PolybiusCipherRemoteControl
+@{
+    int rows = (int)Model.ToGetCurrentAlphabet().Last();
+    int collumns = (int)Model.ToGetCurrentAlphabet()[Model.ToGetCurrentAlphabet().Length - 2];
+
+    char[] key = Model.ToGetCurrentAlphabet();
+}
 
 <div style="display: flex; justify-content: space-between;">
     <div style="width: 30%;">
@@ -9,11 +15,10 @@
                 <label for="Text">Plain text</label>
                 <input class="form-control" type="text" name="text" value=""/>
             </div>
-            <div>
-                <label for="Shift"></label>
-                <input class="form-control" type="number" name="shift" min="0" value="0"/>
+            <div style="width: 5px;"></div>
+            <div style="margin-bottom: 20px;">
+                <button class="btn btn-dark" type="submit">Encrypt</button>
             </div>
-            <button class="btn" type="submit">Encrypt</button>
         </form>
         <p>
             <label for="encryptedText">Encrypted text:</label>
@@ -22,21 +27,102 @@
                 @Model.ShowEncryptedText()
             </textarea>
         </p>
+        <form asp-action="CreateKey" asp-controller="PolybiusCipher" method="post">
+            <button class="btn btn-dark" type="submit">Create a new key</button>
+        </form>
     </div>
+    <div style="width: 20px;"></div>
     <div style="width: 70%;">
-        <form asp-action="Decrypt" asp-controller="PolybiusCipher" method="post">
-    <div>
-        <label for="Text">Encrypted text</label>
-        <input class="form-control" type="text" name="text" />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    @if (key is not null)
+                    {
+                        @for (int i = 0; i < rows; i++)
+                        {
+                            <th scope="col">@(i + 1)</th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (key is not null)
+                {
+                    int k = 0;
+                    @for (int i = 0; i < collumns; i++)
+                    {
+                        <tr>
+                            <th scope="col">@(i + 1)</th>
+                            @for (int j = 0; j < rows; j++)
+                            {
+                                <td>@key[k]</td>
+                                k++;
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
-    <div>
-        <label for="Shift"></label>
-        <input class="form-control" type="number" name="shift" min="0" value="0"/>
+</div>
+
+<hr style="height:3px;">
+
+<div style="display: flex; justify-content: space-between;">
+    <div style="width: 30%;">
+    <form asp-action="Decrypt" asp-controller="PolybiusCipher" method="post">
+        <div>
+            <label for="Text">Encrypted text</label>
+                <input class="form-control" type="number" name="text" />
+        </div>
+        <div style="width: 5px;"></div>
+        <div style="margin-bottom: 20px;">
+            <button class="btn btn-dark" type="submit">Decrypt</button>
+        </div>
+    </form>
+        <p>
+            <label for="encryptedText">Encrypted text:</label>
+            <br>
+            <textarea class="form-control" id="encryptedText" readonly>
+                @Model.ShowDecryptedText()
+            </textarea>
+        </p>
     </div>
-    <button class="btn" type="submit">Decrypt</button>
-</form>
-<p>
-    @Model.ShowDecryptedText()
-</p>
+
+    <div style="width: 20px;"></div>
+
+    <div style="width: 70%;">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    @if (key is not null)
+                    {
+                        @for (int i = 0; i < rows; i++)
+                        {
+                            <th scope="col">@(i + 1)</th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (key is not null)
+                {
+                    int k = 0;
+                    @for (int i = 0; i < collumns; i++)
+                    {
+                        <tr>
+                            <th scope="col">@(i + 1)</th>
+                            @for (int j = 0; j < rows; j++)
+                            {
+                                <td>@key[k]</td>
+                                k++;
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
 </div>

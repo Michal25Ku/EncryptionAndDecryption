@@ -23,9 +23,6 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         }
         public virtual string ShowDecryptedText() => _cipher.DecryptedText;
 
-        public virtual void ToSetAlphabet(string alphabetName)
-        {
-            _cipher.SetAlphabet(alphabetName);
-        }
+        public virtual char[] ToGetCurrentAlphabet() => _cipher.GetCurrentAlphabet();
     }
 }

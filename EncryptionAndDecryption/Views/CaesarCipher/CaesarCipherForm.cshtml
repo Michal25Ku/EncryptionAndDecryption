@@ -21,6 +21,8 @@
     </textarea>
 </p>
 
+<hr style="height:3px;">
+
 <form asp-action="Decrypt" asp-controller="CaesarCipher" method="post">
     <div>
         <label for="Text">Encrypted text</label>
@@ -33,5 +35,9 @@
     <button class="btn" type="submit">Decrypt</button>
 </form>
 <p>
-    @Model.ShowDecryptedText()
+    <label for="encryptedText">Decrypted text:</label>
+    <br>
+    <textarea class="form-control" id="encryptedText" readonly>
+        @Model.ShowDecryptedText()
+    </textarea>
 </p>
