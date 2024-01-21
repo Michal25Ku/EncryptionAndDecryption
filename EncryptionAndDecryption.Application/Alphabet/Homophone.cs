@@ -23,7 +23,7 @@ namespace EncryptionAndDecryption.Application.Alphabet
         public Dictionary<char, char[]> GetLetterWithTheirHomophone(char[] alphabetWithNumberOfHomophone)
         {
             Dictionary<char, char[]> letterHomophones = new Dictionary<char, char[]>();
-            char[] shuffledArray = GetShuffledArray(Homophones);
+            char[] shuffledArray = (char[])Homophones.GetShuffledArray();
 
             int k = 0;
             for (int i = 0; i < alphabetWithNumberOfHomophone.Length - 1; i += 2)
@@ -38,23 +38,6 @@ namespace EncryptionAndDecryption.Application.Alphabet
             }
 
             return letterHomophones;
-        }
-
-        private char[] GetShuffledArray(char[] array)
-        {
-            char[] shuffledAlphabet = (char[])array.Clone();
-            Random random = new Random();
-
-            for (int i = shuffledAlphabet.Length - 1; i > 0; i--)
-            {
-                int randomPosition = random.Next(0, i + 1);
-
-                char temp = shuffledAlphabet[i];
-                shuffledAlphabet[i] = shuffledAlphabet[randomPosition];
-                shuffledAlphabet[randomPosition] = temp;
-            }
-
-            return shuffledAlphabet;
         }
     }
 }

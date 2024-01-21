@@ -91,8 +91,8 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         private char[,] CreateKey()
         {
-            char[,] key = new char[NumberOfRowsAndCollumns()[0], NumberOfRowsAndCollumns()[1]];
-            char[] shuffledAlphabet = GetShuffledAlphabet();
+            char[,] key = new char[GetNumberOfRowsAndCollumns()[0], GetNumberOfRowsAndCollumns()[1]];
+            char[] shuffledAlphabet = (char[])CurrentAlphabet.GetShuffledArray();
 
             int k = 0;
             for (int i = 0; i < key.GetLength(0); i++)
@@ -115,7 +115,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
         }
 
         #region
-        private int[] NumberOfRowsAndCollumns()
+        private int[] GetNumberOfRowsAndCollumns()
         {
             int rows = CurrentAlphabet.Length / 5;
             int collums = CurrentAlphabet.Length / 5;
@@ -135,23 +135,6 @@ namespace EncryptionAndDecryption.Application.Ciphers
             }
 
             return new int[] { rows, collums };
-        }
-
-        private char[] GetShuffledAlphabet()
-        {
-            char[] shuffledAlphabet = (char[])CurrentAlphabet.Clone();
-            Random random = new Random();
-
-            for (int i = shuffledAlphabet.Length - 1; i > 0; i--)
-            {
-                int randomPosition = random.Next(0, i + 1);
-
-                char temp = shuffledAlphabet[i];
-                shuffledAlphabet[i] = shuffledAlphabet[randomPosition];
-                shuffledAlphabet[randomPosition] = temp;
-            }
-
-            return shuffledAlphabet;
         }
         #endregion
     }
