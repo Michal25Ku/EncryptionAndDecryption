@@ -13,13 +13,13 @@ namespace EncryptionAndDecryption.Application.RemoteControl
 
         public virtual void ToEncrypt(string text)
         {
-            _cipher.Encrypt(text, 0);
+            _cipher.Encrypt(text);
         }
         public virtual string ShowEncryptedText() => _cipher.EncryptedText;
 
         public virtual void ToDecrypt(string text)
         {
-            _cipher.Decrypt(text, 0);
+            _cipher.Decrypt(text);
         }
         public virtual string ShowDecryptedText() => _cipher.DecryptedText;
 

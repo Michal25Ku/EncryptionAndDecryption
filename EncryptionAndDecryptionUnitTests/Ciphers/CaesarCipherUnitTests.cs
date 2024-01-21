@@ -30,7 +30,7 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
         {
             string result = "text";
 
-            _caesarCipher.Decrypt(cryptogram, shift);
+            _caesarCipher.Decrypt(cryptogram);
 
             Assert.AreEqual(result, _caesarCipher.DecryptedText);
         }
@@ -41,7 +41,7 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
         [DataRow(3, "someThinG", "uqogwklój")]
         public void EncryptMethodTest_Encrypted_ShouldReturnStringOfEncryptedPlainText(int shift, string cryptogram, string expected)
         {
-            _caesarCipher.Encrypt(cryptogram, shift);
+            _caesarCipher.Encrypt(cryptogram);
 
             Assert.AreEqual(expected, _caesarCipher.EncryptedText);
         }

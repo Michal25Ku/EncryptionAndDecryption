@@ -22,7 +22,8 @@ namespace EncryptionAndDecryption.Controllers
         [HttpPost]
         public IActionResult Encrypt(string text, int shift)
         {
-            _caesarCipherRemoteControl.ToEncrypt(text, shift);
+            _caesarCipherRemoteControl.SetShift(shift);
+            _caesarCipherRemoteControl.ToEncrypt(text);
 
             return View("CaesarCipherForm", _caesarCipherRemoteControl);
         }
@@ -30,7 +31,8 @@ namespace EncryptionAndDecryption.Controllers
         [HttpPost]
         public IActionResult Decrypt(string text, int shift)
         {
-            _caesarCipherRemoteControl.ToDecrypt(text, shift);
+            _caesarCipherRemoteControl.SetShift(shift);
+            _caesarCipherRemoteControl.ToDecrypt(text);
 
             return View("CaesarCipherForm", _caesarCipherRemoteControl);
         }

@@ -34,7 +34,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
             return;
         }
 
-        public void Decrypt(string encryptedText, int shift = 0)
+        public void Decrypt(string encryptedText)
         {
             if (encryptedText == null)
                 return;
@@ -64,7 +64,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
             DecryptedText = decryptedText;
         }
 
-        public void Encrypt(string plainText, int shift = 0)
+        public void Encrypt(string plainText)
         {
             if (plainText == null)
                 return;

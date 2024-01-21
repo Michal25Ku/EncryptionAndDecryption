@@ -32,7 +32,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
 
             polybiusCipherRemoteControl.ToDecrypt(testText);
 
-            mockPolybiusCipher.Verify(x => x.Decrypt(testText, 0));
+            mockPolybiusCipher.Verify(x => x.Decrypt(testText));
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
 
             polybiusCipherRemoteControl.ToEncrypt(testText);
 
-            mockPolybiusCipher.Verify(x => x.Encrypt(testText, 0));
+            mockPolybiusCipher.Verify(x => x.Encrypt(testText));
         }
 
         [TestMethod]

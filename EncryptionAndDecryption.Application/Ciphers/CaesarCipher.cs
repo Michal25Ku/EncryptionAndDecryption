@@ -11,6 +11,8 @@ namespace EncryptionAndDecryption.Application.Ciphers
     public class CaesarCipher : ICipher
     {
         public IAlphabet Alphabets { get; set; }
+        public int Shift { get; private set; }
+
         private char[] CurrentAlphabet { get; set; }
 
         public CaesarCipher()
@@ -22,7 +24,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
         public string? EncryptedText { get; set; }
         public string? DecryptedText { get; set; }
 
-        public void Decrypt(string encryptedText, int shift = 0)
+        public void Decrypt(string encryptedText)
         {
             if (encryptedText == null)
                 return;
@@ -35,13 +37,13 @@ namespace EncryptionAndDecryption.Application.Ciphers
                 if (Char.IsNumber(letters[i]) || letters[i] == ' ')
                     decryptedText += " ";
                 else
-                    decryptedText += CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + CurrentAlphabet.Length - shift) % CurrentAlphabet.Length];
+                    decryptedText += CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + CurrentAlphabet.Length - Shift) % CurrentAlphabet.Length];
             }
 
             DecryptedText = new string(decryptedText);
         }
 
-        public void Encrypt(string plainText, int shift = 0)
+        public void Encrypt(string plainText)
         {
             if (plainText == null)
                 return;
@@ -54,7 +56,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
                 if (Char.IsNumber(letters[i]))
                     continue;
                 else
-                    encryptedText += CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + shift) % CurrentAlphabet.Length];
+                    encryptedText += CurrentAlphabet[(Array.IndexOf(CurrentAlphabet, letters[i]) + Shift) % CurrentAlphabet.Length];
             }
 
             EncryptedText = new string(encryptedText);
@@ -64,7 +66,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         public void Action(object obj)
         {
-            return;
+            Shift = (int)obj;
         }
     }
 }

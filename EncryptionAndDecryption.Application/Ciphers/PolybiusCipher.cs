@@ -23,7 +23,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
         public string? EncryptedText { get; set; }
         public string? DecryptedText { get; set; }
 
-        public void Decrypt(string encryptedText, int shift = 0)
+        public void Decrypt(string encryptedText)
         {
             if (encryptedText == null || Key is null)
                 return;
@@ -41,7 +41,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
             DecryptedText = plainText;
         }
 
-        public void Encrypt(string plainText, int shift = 0)
+        public void Encrypt(string plainText)
         {
             if (plainText == null || Key is null)
                 return;

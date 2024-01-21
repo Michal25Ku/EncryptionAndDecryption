@@ -11,24 +11,9 @@ namespace EncryptionAndDecryption.Application.RemoteControl
     {
         public CaesarCipherRemoteControl(ICipher cipher) : base(cipher) { }
 
-        public override void ToDecrypt(string text)
+        public void SetShift(int shift)
         {
-            ToDecrypt(text, 0);
-        }
-
-        public void ToDecrypt(string text, int shift)
-        {
-            _cipher.Decrypt(text, shift);
-        }
-
-        public override void ToEncrypt(string text)
-        {
-            ToEncrypt(text, 0);
-        }
-
-        public void ToEncrypt(string text, int shift)
-        {
-            _cipher.Encrypt(text, shift);
+            _cipher.Action(shift);
         }
     }
 }

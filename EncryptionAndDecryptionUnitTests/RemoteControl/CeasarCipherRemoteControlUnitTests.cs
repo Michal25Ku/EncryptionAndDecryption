@@ -33,7 +33,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
 
             caesarCipherRemoteControl.ToDecrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Decrypt(testText, 0));
+            mockCaesarCipher.Verify(x => x.Decrypt(testText));
         }
 
         [TestMethod]
@@ -44,7 +44,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
 
             caesarCipherRemoteControl.ToEncrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Encrypt(testText, 0));
+            mockCaesarCipher.Verify(x => x.Encrypt(testText));
         }
 
         [TestMethod]
@@ -53,9 +53,9 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
             var mockCaesarCipher = new Mock<ICipher>();
             var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            caesarCipherRemoteControl.ToDecrypt(testText, 1);
+            caesarCipherRemoteControl.ToDecrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Decrypt(testText, 1));
+            mockCaesarCipher.Verify(x => x.Decrypt(testText));
         }
 
         [TestMethod]
@@ -64,9 +64,9 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
             var mockCaesarCipher = new Mock<ICipher>();
             var caesarCipherRemoteControl = new CaesarCipherRemoteControl(mockCaesarCipher.Object);
 
-            caesarCipherRemoteControl.ToEncrypt(testText, 1);
+            caesarCipherRemoteControl.ToEncrypt(testText);
 
-            mockCaesarCipher.Verify(x => x.Encrypt(testText, 1));
+            mockCaesarCipher.Verify(x => x.Encrypt(testText));
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
         {
             string test;
 
-            _caesarCipherRemoteControl.ToDecrypt("uęśu", 1);
+            _caesarCipherRemoteControl.ToDecrypt("uęśu");
             test = _caesarCipherRemoteControl.ShowDecryptedText();
 
             Assert.AreEqual(testText.ToLower(), test);
@@ -85,7 +85,7 @@ namespace EncryptionAndDecryptionUnitTests.RemoteControl
         {
             string test;
 
-            _caesarCipherRemoteControl.ToEncrypt(testText, 1);
+            _caesarCipherRemoteControl.ToEncrypt(testText);
             test = _caesarCipherRemoteControl.ShowEncryptedText();
 
             Assert.AreEqual("uęśu", test);
