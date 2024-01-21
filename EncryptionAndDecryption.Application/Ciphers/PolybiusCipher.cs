@@ -144,11 +144,11 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
             for (int i = shuffledAlphabet.Length - 1; i > 0; i--)
             {
-                int losowaPozycja = random.Next(0, i + 1);
+                int randomPosition = random.Next(0, i + 1);
 
                 char temp = shuffledAlphabet[i];
-                shuffledAlphabet[i] = shuffledAlphabet[losowaPozycja];
-                shuffledAlphabet[losowaPozycja] = temp;
+                shuffledAlphabet[i] = shuffledAlphabet[randomPosition];
+                shuffledAlphabet[randomPosition] = temp;
             }
 
             return shuffledAlphabet;

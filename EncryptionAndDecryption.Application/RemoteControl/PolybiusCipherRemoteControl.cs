@@ -15,7 +15,7 @@ namespace EncryptionAndDecryption.Application.RemoteControl
 
         public void CreateKey()
         {
-            _cipher.Action(null);
+            _cipher.Action(this);
         }
     }
 }

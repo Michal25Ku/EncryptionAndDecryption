@@ -16,6 +16,7 @@ namespace EncryptionAndDecryption
 
             builder.Services.AddSingleton<ICipher, CaesarCipher>().AddSingleton<CaesarCipher>();
             builder.Services.AddSingleton<ICipher, PolybiusCipher>().AddSingleton<PolybiusCipher>();
+            builder.Services.AddSingleton<ICipher, HomophonicCipher>().AddSingleton<HomophonicCipher>();
 
             var app = builder.Build();
 

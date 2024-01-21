@@ -1,0 +1,35 @@
+﻿@using EncryptionAndDecryption.Application.RemoteControl
+@using EncryptionAndDecryption.Application.Alphabet
+@model HomophonicCipherRemoteControl
+
+<form asp-action="Encrypt" asp-controller="HomophonicCipher" method="post">
+    <div>
+        <label for="Text">Plain text</label>
+        <input class="form-control" type="text" name="text" value="" />
+    </div>
+    <button class="btn" type="submit">Encrypt</button>
+</form>
+<p>
+    <label for="encryptedText">Encrypted text:</label>
+    <br>
+    <textarea class="form-control" id="encryptedText" readonly>
+        @Model.ShowEncryptedText()
+    </textarea>
+</p>
+
+<hr style="height:3px;">
+
+<form asp-action="Decrypt" asp-controller="HomophonicCipher" method="post">
+    <div>
+        <label for="Text">Encrypted text</label>
+        <input class="form-control" type="text" name="text" />
+    </div>
+    <button class="btn" type="submit">Decrypt</button>
+</form>
+<p>
+    <label for="encryptedText">Decrypted text:</label>
+    <br>
+    <textarea class="form-control" id="encryptedText" readonly>
+        @Model.ShowDecryptedText()
+    </textarea>
+</p>

@@ -12,25 +12,5 @@ namespace EncryptionAndDecryption.Application.RemoteControl
         public HomophonicCipherRemoteControl(ICipher cipher) : base(cipher)
         {
         }
-
-        public override string ShowDecryptedText()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ShowEncryptedText()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void ToDecrypt(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void ToEncrypt(string text)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
