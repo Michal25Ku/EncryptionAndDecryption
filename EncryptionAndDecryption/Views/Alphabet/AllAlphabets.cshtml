@@ -1,0 +1,43 @@
+﻿@model List<Alphabet>
+
+
+@if(Model.Count > 0)
+{
+    <table class="table">
+        @foreach(var alphabet in @Model)
+        {
+            <tr>
+                <td>
+                    @alphabet.AlphabetName
+                </td>
+                <td>
+                    @{
+                        int maxLength = 25;
+                        string displayText = @alphabet.AlphabetChars.Length > maxLength ? @alphabet.AlphabetChars.Substring(0, maxLength) : @alphabet.AlphabetChars;
+                        displayText = string.Join(", ", displayText.Select(c => c.ToString())) + " ...";
+                    }
+                    @displayText
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                        asp-action="EditAlphabet"
+                        asp-controller="Alphabet"
+                        asp-route-id=@alphabet.AlphabetId>
+                        Edit
+                    </a>
+                    <a class="btn btn-primary"
+                        asp-action="DeleteAlphabet"
+                        asp-controller="Alphabet"
+                        asp-route-id=@alphabet.AlphabetId>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<a class="btn btn-primary"
+   asp-action="CreateAlphabet"
+   asp-controller="Alphabet">
+    Create alphabet
+</a>

@@ -9,7 +9,7 @@ namespace EncryptionAndDecryption.Application.Ciphers
 {
     public class HomophonicCipher : ICipher
     {
-        public IAlphabet Alphabets { get; set; }
+        //public IAlphabet Alphabets { get; set; }
         public IHomophone Homophones { get; set; }
 
         public char[] AlphabetWithHomophonesNumber { get; set; }
@@ -18,10 +18,10 @@ namespace EncryptionAndDecryption.Application.Ciphers
 
         public HomophonicCipher()
         {
-            Alphabets = new Alphabets();
+            //Alphabets = new Alphabets();
             Homophones = new Homophone();
 
-            AlphabetWithHomophonesNumber = Alphabets.FoundAlphabet("HomophonePl");
+            //AlphabetWithHomophonesNumber = Alphabets.FoundAlphabet("HomophonePl");
 
             LettersWithRandomHomophones = Homophones.GetLetterWithTheirHomophone(AlphabetWithHomophonesNumber);
         }

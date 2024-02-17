@@ -10,15 +10,15 @@ namespace EncryptionAndDecryption.Application.Ciphers
 {
     public class CaesarCipher : ICipher
     {
-        public IAlphabet Alphabets { get; set; }
+        //public IAlphabet Alphabets { get; set; }
         public int Shift { get; private set; }
 
         private char[] CurrentAlphabet { get; set; }
 
         public CaesarCipher()
         {
-            Alphabets = new Alphabets();
-            CurrentAlphabet = Alphabets.FoundAlphabet("Pl");
+            //Alphabets = new Alphabets();
+            //CurrentAlphabet = Alphabets.FoundAlphabet("Pl");
         }
 
         public string? EncryptedText { get; set; }

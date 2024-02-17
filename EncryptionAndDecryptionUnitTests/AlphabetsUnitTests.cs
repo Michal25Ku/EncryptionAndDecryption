@@ -5,31 +5,31 @@ namespace EncryptionAndDecryptionUnitTests
     [TestClass]
     public class AlphabetsUnitTests
     {
-        Alphabets _alphabets = new Alphabets();
+        //Alphabets _alphabets = new Alphabets();
 
-        [TestMethod]
-        public void AddNewAlphabetMethodTest_AddNewAlpabet_ShouldAddAlphabetToDictionary()
-        {
-            string testAlphabetName = "NewAlphabet";
-            char[] testAlphabet = new char[] { 'a', 'b', 'c', '.' };
+        //[TestMethod]
+        //public void AddNewAlphabetMethodTest_AddNewAlpabet_ShouldAddAlphabetToDictionary()
+        //{
+        //    string testAlphabetName = "NewAlphabet";
+        //    char[] testAlphabet = new char[] { 'a', 'b', 'c', '.' };
 
-            _alphabets.AddNewAlphabet(testAlphabetName, testAlphabet);
+        //    _alphabets.AddNewAlphabet(testAlphabetName, testAlphabet);
 
-            Assert.IsTrue(Alphabets.AlphabetList.ContainsKey(testAlphabetName));
-            Assert.IsTrue(Alphabets.AlphabetList[testAlphabetName].Equals(testAlphabet));
-        }
+        //    Assert.IsTrue(Alphabets.AlphabetList.ContainsKey(testAlphabetName));
+        //    Assert.IsTrue(Alphabets.AlphabetList[testAlphabetName].Equals(testAlphabet));
+        //}
 
-        [TestMethod]
-        public void FoundAlphabetMethodTest_ShouldReturnCharArray()
-        {
-            string testAlphabetName = "Test alphabet";
-            char[] testAlphabet = new char[] { 'a', 'b', 'c', '.' };
-            char[] expectedAlphabet;
+        //[TestMethod]
+        //public void FoundAlphabetMethodTest_ShouldReturnCharArray()
+        //{
+        //    string testAlphabetName = "Test alphabet";
+        //    char[] testAlphabet = new char[] { 'a', 'b', 'c', '.' };
+        //    char[] expectedAlphabet;
 
-            _alphabets.AddNewAlphabet(testAlphabetName, testAlphabet);
-            expectedAlphabet = _alphabets.FoundAlphabet(testAlphabetName);
+        //    _alphabets.AddNewAlphabet(testAlphabetName, testAlphabet);
+        //    expectedAlphabet = _alphabets.FoundAlphabet(testAlphabetName);
 
-            Assert.IsTrue(expectedAlphabet.Equals(testAlphabet));
-        }
+        //    Assert.IsTrue(expectedAlphabet.Equals(testAlphabet));
+        //}
     }
 }

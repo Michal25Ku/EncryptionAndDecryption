@@ -43,5 +43,13 @@ namespace EncryptionAndDecryption.Controllers
 
             return View("PolybiusCipherForm", _polybiusCipherRemoteControl);
         }
+
+        //[HttpPost]
+        //public IActionResult SetKey([FromBody] char[,] allegedKey)
+        //{
+        //    _polybiusCipherRemoteControl.SetAllegedKey(allegedKey);
+
+        //    return View("PolybiusCipherForm", _polybiusCipherRemoteControl);
+        //}
     }
 }

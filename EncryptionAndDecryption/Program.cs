@@ -1,6 +1,7 @@
 using EncryptionAndDecryption.Application.Ciphers;
 using EncryptionAndDecryption.Application.RemoteControl;
 using EncryptionAndDecryption.Controllers;
+using EncryptionAndDecryption.Models.Services.AlphabetServices;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EncryptionAndDecryption
@@ -17,6 +18,8 @@ namespace EncryptionAndDecryption
             builder.Services.AddSingleton<ICipher, CaesarCipher>().AddSingleton<CaesarCipher>();
             builder.Services.AddSingleton<ICipher, PolybiusCipher>().AddSingleton<PolybiusCipher>();
             builder.Services.AddSingleton<ICipher, HomophonicCipher>().AddSingleton<HomophonicCipher>();
+
+            builder.Services.AddSingleton<IAlphabetService, AlphabetService>();
 
             var app = builder.Build();
 

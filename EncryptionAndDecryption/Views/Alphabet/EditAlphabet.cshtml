@@ -1,0 +1,26 @@
+﻿@model Alphabet
+
+<h1>Edit alphabet</h1>
+<form asp-action="EditAlphabet" asp-controller="Alphabet" method="post">
+    <div>
+        <input type="hidden" asp-for="AlphabetId" value="@Model.AlphabetId" />
+        <div>
+            <label asp-for="@Model.AlphabetName">Alphabet name</label>
+            <input class="form-control" type="text" asp-for="AlphabetName" value="@Model.AlphabetName"/>
+            <div>
+                <span asp-validation-for="@Model.AlphabetName" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="@Model.AlphabetChars">Type the characters in your alphabet.</label>
+            <input class="form-control" type="text" asp-for="AlphabetChars" value="@Model.AlphabetChars" />
+            <div>
+                <span asp-validation-for="@Model.AlphabetChars" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-dark" type="submit">Update</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+﻿@model Alphabet
+
+<h1>Create new alphabet</h1>
+<form asp-action="CreateAlphabet" asp-controller="Alphabet" method="post">
+    <div>
+        <div>
+            <label asp-for="@Model.AlphabetName">New alphabet name</label>
+            <input class="form-control" type="text" asp-for="AlphabetName" />
+            <div>
+                <span asp-validation-for="@Model.AlphabetName" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="@Model.AlphabetChars">Type the characters in your new alphabet. After each character, enter ',' </label>
+            <input class="form-control" type="text" asp-for="AlphabetChars" />
+            <div>
+                <span asp-validation-for="@Model.AlphabetChars" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-dark" type="submit">Create</button>
+        </div>
+    </div>
+</form>

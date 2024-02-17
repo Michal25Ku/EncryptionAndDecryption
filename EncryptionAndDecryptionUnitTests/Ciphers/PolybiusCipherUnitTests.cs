@@ -26,7 +26,7 @@ namespace EncryptionAndDecryptionUnitTests.Ciphers
         {
             PolybiusCipher testPolybiusCipher = new PolybiusCipher();
 
-            Assert.IsTrue(testPolybiusCipher.Alphabets is Alphabets);
+            //Assert.IsTrue(testPolybiusCipher.Alphabets is Alphabets);
             Assert.IsTrue(testPolybiusCipher.Key is not null);
         }
 
